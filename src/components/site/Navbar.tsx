@@ -60,8 +60,8 @@ export function Navbar({ brand = "default" }: { brand?: Brand } = {}) {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-[100] transition-all duration-700 ${
-        scrolled || open ? "glass-strong py-2.5" : "py-5"
+       className={`fixed inset-x-0 top-0 z-[100] w-full max-w-[100vw] overflow-x-clip transition-all duration-700 ${
+        scrolled || open ? "glass-strong py-1.5 md:py-2.5" : "py-2.5 md:py-5"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-3 md:px-6">
@@ -82,8 +82,8 @@ export function Navbar({ brand = "default" }: { brand?: Brand } = {}) {
 <img
   src={logo}
   alt="Ohreems Group of Companies emblem"
-  width={144}
-  height={144}
+  width={120}
+  height={120}
   decoding="async"
   className={`block w-auto select-none object-contain transition-all duration-700 ease-out
     ${
@@ -122,51 +122,53 @@ export function Navbar({ brand = "default" }: { brand?: Brand } = {}) {
   {brand === "default" && (
     <div className="-ml-1 md:-ml-2 flex flex-col leading-none">
       
-      {/* Main Title */}
-      <span
-        className="
-          bg-gradient-to-r from-[#F5D77A] via-[#D4AF37] to-[#FFF1B8]
-          bg-clip-text text-transparent
-          text-[14px] md:text-[20px]
-          font-semibold tracking-[0.22em]
-          transition-all duration-700
-          group-hover:tracking-[0.28em]
-        "
-      >
-        OHREEMS
-      </span>
+       {/* Main Title */}
+    <span className="
+      bg-gradient-to-r from-[#F5D77A] via-[#D4AF37] to-[#FFF1B8]
+      bg-clip-text text-transparent
+      text-[14px] md:text-[20px]
+      font-semibold tracking-[0.22em]
+      transition-all duration-700
+      group-hover:tracking-[0.28em]
+    ">
+      OHREEMS
+    </span>
 
-      {/* Subtitle */}
-      <span
-        className="
-          mt-2
-          text-[6px] md:text-[8px]
-          font-medium
-          tracking-[0.42em]
-          text-[#D4AF37]
-          transition-all duration-700
-          group-hover:text-[#F5D77A]
-        "
-      >
-        GROUP OF COMPANIES
-      </span>
+    {/* Subtitle */}
+    <span className="
+      mt-2
+      text-[6px] md:text-[8px]
+      font-medium
+      tracking-[0.42em]
+      text-[#D4AF37]
+      transition-all duration-700
+      group-hover:text-[#F5D77A]
+    ">
+      GROUP OF COMPANIES
+    </span>
 
-      {/* Tagline */}
-      <span
-        className="
-          mt-3
-          text-[5px]
-          md:text-[7px]
-          font-medium
-          tracking-[0.32em]
-          text-[#F5D77A]
-          transition-all
-          duration-500
-          group-hover:text-[#FFF1B8]
-        "
-      >
-        INNOVATE • INTEGRATE • IMPACT
-      </span>
+  {/* Tagline */}
+<span
+  className="
+    mt-2
+
+    text-[5px]
+    md:text-[7px]
+
+    font-medium
+
+    tracking-[0.32em]
+
+    text-[#F5D77A]
+
+    transition-all
+    duration-500
+
+    group-hover:text-[#FFF1B8]
+  "
+>
+  INNOVATE • INTEGRATE • IMPACT
+</span>
     </div>
   )}
 </Link>
@@ -228,13 +230,19 @@ export function Navbar({ brand = "default" }: { brand?: Brand } = {}) {
             </div>
           </li>
 
-          {links.slice(2).map((l) => (
-            <li key={l.label}>
-              <Link to={l.to} className="nav-link text-[15px] font-normal uppercase tracking-[0.22em]">
-                {l.label}
-              </Link>
-            </li>
-          ))}
+        {links.slice(2).map((l) => (
+  <li key={l.label}>
+    <Link
+      to={l.to}
+      className="nav-link text-[15px] font-normal uppercase tracking-[0.22em]"
+    >
+      {l.label}
+    </Link>
+  </li>
+))}
+
+
+      
         </ul>
 
         <div className="hidden lg:block">

@@ -73,13 +73,15 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col items-start justify-center px-6 pb-45 pt-45">
+      
+         <div className="hero-root relative mx-auto flex min-h-[100svh] max-w-7xl flex-col items-start justify-center px-5 pb-16 pt-28 md:px-6 md:pb-32 md:pt-36">
         <div ref={badgeRef} className="glass inline-flex items-center gap-2.5 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.36em] text-gold/95">
           <span className="h-1.5 w-1.5 rounded-full bg-gold anim-pulse-gold" />
           A Global Enterprise Group · Est. Vision
         </div>
 
-        <h1 ref={headlineRef} className="mt-24 max-w-5xl font-display text-[clamp(3rem,8vw,7.5rem)] font-semibold leading-[1.1] tracking-[-0.022em] text-balance">
+        
+          <h1 ref={headlineRef} className="mt-10 max-w-5xl font-display text-[clamp(2.25rem,8vw,7.5rem)] font-semibold leading-[1.08] tracking-[-0.022em] text-balance md:mt-24">
           Innovating
           <br />
           <span className="text-sheen-gold">Tomorrow's</span>{" "}
@@ -87,7 +89,8 @@ export function Hero() {
           <span className="italic font-light text-foreground/65">Today.</span>
         </h1>
 
-        <div ref={subtitleRef} className="mt-16 flex max-w-xl items-start gap-6">
+       
+          <div ref={subtitleRef} className="mt-7 flex max-w-xl items-start gap-6 md:mt-16">
           <span className="mt-3 hidden h-px w-14 bg-gold/55 md:block" />
           <p className="text-[15px] font-light leading-[1.9] tracking-[0.01em] text-muted-foreground/95 md:text-base text-pretty">
             A multi-sector enterprise group fusing technological innovation with
@@ -97,7 +100,7 @@ export function Hero() {
         </div>
 
         <div ref={ctaRef} className="mt-14 flex flex-wrap items-center gap-4">
-          <a href="#divisions" className="btn-gold inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-medium tracking-wide">
+             <a href="#about" className="btn-ghost-gold inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide md:px-8 md:py-4">
             Explore the Group
             <span aria-hidden>→</span>
           </a>
@@ -107,7 +110,8 @@ export function Hero() {
         </div>
 
         {/* Stat strip */}
-        <div ref={statsRef} className="mt-24 grid w-full max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl glass-strong md:grid-cols-4">
+       
+           <div ref={statsRef} className="mt-12 grid w-full max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl glass-strong md:mt-24 md:grid-cols-4">
           {[
             { k: "02", v: "Core Divisions" },
             { k: "15+", v: "Years of Vision" },

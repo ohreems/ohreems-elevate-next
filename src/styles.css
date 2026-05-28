@@ -1,4 +1,4 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss";
 @source "../src";
 @import "tw-animate-css";
 
@@ -498,6 +498,8 @@
 
 @layer utilities {
   /* Light luxury sections — warm champagne off-white palette */
+  .txtcg{color:#D4AF37; font-weight: bold;
+    }
   .section-light {
     --background: oklch(0.985 0.006 85);
     --foreground: oklch(0.22 0.03 265);
@@ -574,3 +576,98 @@
   .section-workforce h1,
   .section-greencell h1 { font-weight: 500; }
 }
+
+/* ============================================================
+   Mobile-only spacing optimizations — desktop layout untouched
+   ============================================================ */
+@media (max-width: 767px) {
+  /* Generic section padding compression */
+  section.py-32 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+  section.py-28 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  section.py-20 { padding-top: 2.75rem !important; padding-bottom: 2.75rem !important; }
+
+  /* First-section / hero top padding (accounts for fixed navbar) */
+  section.pt-40 { padding-top: 6.5rem !important; }
+  section.pt-36 { padding-top: 6.25rem !important; }
+  section.pt-28 { padding-top: 5.5rem !important; }
+  section.pb-32 { padding-bottom: 3rem !important; }
+  section.pb-28 { padding-bottom: 2.75rem !important; }
+  section.pb-24 { padding-bottom: 2.5rem !important; }
+  section.pb-16 { padding-bottom: 2rem !important; }
+  section.pb-14 { padding-bottom: 1.75rem !important; }
+
+  /* Brand pages — first section + subsequent sections */
+  .section-workforce > section:first-of-type,
+  .section-greencell > section:first-of-type {
+    padding-top: 6.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  .section-workforce > section,
+  .section-greencell > section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .section-workforce > section:first-of-type,
+  .section-greencell > section:first-of-type {
+    padding-top: 6.5rem !important;
+  }
+
+  /* Brand footers */
+  .section-workforce > footer,
+  .section-greencell > footer { padding-top: 0 !important; }
+  .section-workforce > footer > div,
+  .section-greencell > footer > div {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Common gap/margin overrides used across sections */
+  .gap-24 { gap: 2.5rem !important; }
+  .gap-16 { gap: 2rem !important; }
+  .mt-28 { margin-top: 2.5rem !important; }
+  .mt-24 { margin-top: 2.25rem !important; }
+  .mt-20 { margin-top: 2rem !important; }
+  .pt-20 { padding-top: 2rem !important; }
+
+  /* Main Ohreems footer */
+  footer .grid.gap-24 { gap: 2.25rem !important; }
+  footer .mt-28 { margin-top: 2.5rem !important; }
+  footer .gap-16 { gap: 2rem !important; }
+
+  /* Typography overflow safety */
+  h1, h2, h3 { overflow-wrap: anywhere; word-break: break-word; }
+
+  /* Navbar + mobile menu */
+  header nav { padding-left: 1rem !important; padding-right: 1rem !important; }
+  header .lg\:hidden > div { padding: 1.1rem !important; }
+  header .lg\:hidden ul > li > a,
+  header .lg\:hidden ul > li > button {
+    padding-top: 0.55rem !important;
+    padding-bottom: 0.55rem !important;
+  }
+
+  /* Contact form grid */
+  .section-light .grid.gap-10 { gap: 1.75rem !important; }
+
+  /* Prevent any horizontal scroll on mobile */
+  html, body { overflow-x: hidden; max-width: 100vw; }
+  img:not(header img), svg:not(header svg), video { max-width: 100%; height: auto; }
+  header img { max-width: 100%; }
+
+  /* Ensure cards/grids stack and breathe */
+  .grid.gap-px { border-radius: 1rem; }
+
+   /* Tame oversized display headings on small screens */
+  h1 { font-size: clamp(1.9rem, 8vw, 2.6rem) !important; line-height: 1.12 !important; }
+  h2 { font-size: clamp(1.55rem, 6.4vw, 2.1rem) !important; line-height: 1.15 !important; }
+  h3 { font-size: clamp(1.15rem, 4.6vw, 1.4rem) !important; line-height: 1.25 !important; }
+  /* Eyebrow / uppercase tracking on tiny screens — relax letter-spacing */
+  .tracking-\[0\.36em\], .tracking-\[0\.4em\], .tracking-\[0\.46em\] { letter-spacing: 0.22em !important; }
+  /* Brand hero stat strips — single column on phones */
+ /* Greencell hero stat strip — single column on phones for legibility */
+  .section-greencell .grid.sm\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+

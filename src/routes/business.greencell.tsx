@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { GreencellFooter } from "@/components/site/Sections";
 // greencell logo lives in the navbar (brand="greencell")
-import greencellBanner from "@/assets/greencell-banner.jpg";
+import greencellBanner from "@/assets/Main page pic.png";
 import { useInViewReveal } from "@/hooks/use-in-view-reveal";
 
 export const Route = createFileRoute("/business/greencell")({
@@ -20,11 +20,11 @@ export const Route = createFileRoute("/business/greencell")({
 });
 
 const recoveries = [
-  { title: "Black Mass", desc: "Recovered cathode material containing lithium, nickel, cobalt, and manganese compounds essential for new battery manufacturing.", tag: "Li · Ni · Co · Mn" },
-  { title: "Critical Minerals", desc: "Refined lithium carbonate, cobalt sulfate, and nickel sulfate — battery-grade materials ready for cell manufacturers worldwide.", tag: "Battery-grade purity" },
-  { title: "By-Products", desc: "Copper foil, aluminium sheet, and reclaimed plastics recovered during processing — zero-waste outputs repurposed across industries.", tag: "Cu · Al · Polymers" },
+  { title: "Black Mass", desc: "Through advanced mechanical pre-treatment processes, we convert end-of-life battery scrap into high-purity black mass, preserving critical materials for the next stage of the circular economy.", tag: "Critical mineral rich Black Mass" },
+  { title: "Industrial Safety Standards", desc: "Inert-gas shredding chambers and complete dust-capture pipelines ensure every stage of processing is handled under the strictest industrial safety protocols.", tag: "Inert-gas · Dust-capture" },
+  { title: "Environment Safe Operations", desc: "Closed-loop water systems, zero-emission processing, and rigorous compliance with EPR frameworks keep our operations gentle on the environment at every step.", tag: "EPR Compliant · Zero-emission" },
+  { title: "Downstream Feedstock Distribution", desc: "The recovered black mass is finely screened, quality-tested, and packaged as a premium, uniform feedstock — ready for immediate delivery to global hydrometallurgical refining partners.", tag: "Battery-grade feedstock" },
 ];
-
 const steps = [
   { n: "1", t: "Collection & intake", d: "Batteries collected from OEMs, fleet operators, and recyclers. Each batch logged and assessed on arrival." },
   { n: "2", t: "Safe discharge & dismantling", d: "Cells safely discharged and separated by chemistry type for targeted processing." },
@@ -107,12 +107,12 @@ function GreencellPage() {
             Through advanced hydrometallurgical processes, we extract and purify materials ready for reuse in new battery manufacturing and beyond.
           </p>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
             {recoveries.map((r) => (
-              <div key={r.title} className="in-view-reveal rounded-2xl glass p-8 transition duration-700 hover:-translate-y-1 hover:shadow-[0_30px_70px_-30px_oklch(0.4_0.18_150_/_0.5)]">
-                <div className="font-display text-2xl text-foreground">{r.title}</div>
+                            <div key={r.title} className="in-view-reveal rounded-2xl glass p-7 transition duration-700 hover:-translate-y-1 hover:shadow-[0_30px_70px_-30px_oklch(0.4_0.18_150_/_0.5)]">
+                <div className="font-display text-xl text-foreground">{r.title}</div>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{r.desc}</p>
-                <div className="mt-6 text-xs uppercase tracking-[0.22em] text-green-accent">{r.tag}</div>
+                <div className="mt-6 text-[11px] uppercase tracking-[0.22em] text-green-accent">{r.tag}</div>
               </div>
             ))}
           </div>

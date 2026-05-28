@@ -3,7 +3,8 @@ import green from "@/assets/division-greencell.jpg";
 import globe from "@/assets/global-map.jpg";
 import workforceLogo from "@/assets/workforce-logo-original.svg";
 import greencellLogo from "@/assets/greencell-logo-original.svg";
-
+import { Socials } from "@/components/site/Socials";
+import { mainSocials, workforceSocials, greencellSocials } from "@/lib/socials";
 function SectionLabel({ eyebrow, title, kicker, index }: { eyebrow: string; title: string; kicker?: string; index?: string }) {
   return (
     <div className="max-w-3xl">
@@ -91,8 +92,8 @@ const divisions: Division[] = [
     desc: "Sustainable battery recycling — safely processing and recovering valuable materials to reduce waste and accelerate a global circular economy.",
     img: green,
     href: "/business/greencell",
-    capabilities: ["Battery Recycling", "Material Recovery", "Circular Supply", "Safety & Compliance", "ESG Advisory"],
-    stats: [{ k: "Zero", v: "Waste" }, { k: "Closed", v: "Loop" }, { k: "ESG", v: "Aligned" }],
+   capabilities: ["Battery Recycling", "Material Recovery", "Circular Supply", "Safety & Compliance", "EPR Compliant"],
+    stats: [{ k: "Zero", v: "Waste" }, { k: "Closed", v: "Loop" }, { k: "EPR", v: "Compliant" }],
     theme: "green",
   },
 ];
@@ -144,15 +145,15 @@ function DivisionCard({ d, reverse }: { d: Division; reverse: boolean }) {
             <span className="grid h-12 w-12 place-items-center rounded-full bg-background/60 backdrop-blur ring-1 ring-gold/40 font-display text-sm text-gold">
               {d.index}
             </span>
-            <span className="text-[10px] uppercase tracking-[0.35em] text-foreground/70">{d.tag}</span>
+            <span className="text-[10px] uppercase tracking-[0.35em] text-foreground/70 txtcg">{d.tag}</span>
           </div>
         </div>
 
         {/* Content */}
         <div className="relative flex flex-col justify-between gap-8 p-8 lg:col-span-5 lg:p-12">
           <div>
-            <div className={`text-xs uppercase tracking-[0.3em] ${isTech ? "text-cyan" : "text-teal"}`}>{d.lede}</div>
-            <h3 className="mt-5 font-display text-[clamp(1.75rem,2.6vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.02em]">
+             <div className={`text-xs uppercase tracking-[0.3em] ${isTech ? "text-[oklch(0.42_0.16_252)]" : "text-[oklch(0.46_0.16_152)]"}`}>{d.lede}</div>
+            <h3 className="mt-5 font-display text-[clamp(1.5rem,2.6vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.02em]">
               {d.name}
             </h3>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground text-pretty">{d.desc}</p>
@@ -161,9 +162,10 @@ function DivisionCard({ d, reverse }: { d: Division; reverse: boolean }) {
           <ul className="flex flex-wrap gap-2">
             {d.capabilities.map((c) => (
               <li
-                key={c}
-                className={`rounded-full border px-3 py-1 text-[11px] tracking-wide ${
-                  isTech ? "border-cyan/30 text-cyan/90 bg-cyan/5" : "border-teal/30 text-teal/90 bg-teal/5"
+                className={`rounded-full border px-3 py-1 text-[11px] font-medium tracking-wide ${
+                  isTech
+                    ? "border-[oklch(0.42_0.16_252/0.35)] text-[oklch(0.32_0.14_262)] bg-[oklch(0.5_0.18_252/0.08)]"
+                    : "border-[oklch(0.46_0.16_152/0.35)] text-[oklch(0.32_0.12_155)] bg-[oklch(0.55_0.16_152/0.08)]"
                 }`}
               >
                 {c}
@@ -491,7 +493,7 @@ export function Footer() {
       <div className="pointer-events-none absolute -bottom-40 right-0 h-[24rem] w-[40rem] rounded-full bg-gold/8 blur-[180px]" />
       <div className="pointer-events-none absolute inset-0 grid-overlay opacity-[0.12]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-16 pt-32 md:pt-36">
+      <div className="relative mx-auto max-w-7xl px-5 pb-10 pt-16 md:px-6 md:pb-16 md:pt-32 lg:pt-36">
         {/* Brand row */}
         <div className="grid gap-24 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -584,9 +586,20 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-24 h-px w-full bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
+   <div className="mt-16 flex items-center gap-4 md:mt-20">
+  <div className="text-[10px] font-light uppercase tracking-[0.4em] text-gold/85">
+    Follow Ohreems :
+  </div>
+<Socials
+    brand="gold"
+    links={mainSocials}
+  />
+</div>
+        
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 text-[10px] font-light uppercase tracking-[0.36em] text-muted-foreground/75 md:flex-row md:items-center">
+        <div className="mt-12 h-px w-full bg-gradient-to-r from-transparent via-gold/25 to-transparent md:mt-16" />
+
+        <div className="mt-8 flex flex-col items-start justify-between gap-4 text-[10px] font-light uppercase tracking-[0.36em] text-muted-foreground/75 md:mt-10 md:flex-row md:items-center">
           <div>© {year} Ohreems Group of Companies — All rights reserved.</div>
           <div className="flex items-center gap-6">
             <a className="text-gold/75 transition-colors duration-700 hover:text-gold" href="/privacy">Privacy</a>
@@ -644,8 +657,12 @@ export function WorkforceFooter() {
             ]} />
           </div>
         </div>
-        <div className="mt-16 h-px w-full bg-gradient-to-r from-transparent via-[oklch(0.42_0.16_252/0.3)] to-transparent" />
-        <div className="mt-8 flex flex-col items-start justify-between gap-3 text-[10px] font-light uppercase tracking-[0.32em] text-muted-foreground md:flex-row md:items-center">
+        <div className="mt-12 flex items-start gap-4 md:mt-16 md:items-center">
+          <div className="text-[10px] font-light uppercase tracking-[0.36em] text-wf-blue">Follow Workforce :</div>
+          <Socials brand="blue" links={workforceSocials} />
+        </div>
+        <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-[oklch(0.42_0.16_252/0.3)] to-transparent md:mt-10" />
+        <div className="mt-6 flex flex-col items-start justify-between gap-3 text-[10px] font-light uppercase tracking-[0.32em] text-muted-foreground md:mt-8 md:flex-row md:items-center">
           <div>© {year} Ohreems Workforce Solutions — All rights reserved.</div>
           <div className="flex items-center gap-6">
             <a className="text-wf-blue hover:opacity-80" href="/privacy">Privacy</a>
@@ -695,8 +712,12 @@ export function GreencellFooter() {
             ]} />
           </div>
         </div>
-        <div className="mt-16 h-px w-full bg-gradient-to-r from-transparent via-[oklch(0.5_0.16_152/0.3)] to-transparent" />
-        <div className="mt-8 flex flex-col items-start justify-between gap-3 text-[10px] font-light uppercase tracking-[0.32em] text-muted-foreground md:flex-row md:items-center">
+        <div className="mt-12 flex  items-start gap-4 md:mt-16  md:items-center">
+          <div className="text-[10px] font-light uppercase tracking-[0.36em] text-green-accent">Follow GreenCell :</div>
+          <Socials brand="green" links={greencellSocials} />
+        </div>
+        <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-[oklch(0.5_0.16_152/0.3)] to-transparent md:mt-10" />
+        <div className="mt-6 flex flex-col items-start justify-between gap-3 text-[10px] font-light uppercase tracking-[0.32em] text-muted-foreground md:mt-8 md:flex-row md:items-center">
           <div>© {year} Ohreems Greencell Tech — All rights reserved.</div>
           <div className="flex items-center gap-6">
             <a className="text-green-accent hover:opacity-80" href="/privacy">Privacy</a>
