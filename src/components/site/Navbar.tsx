@@ -85,7 +85,7 @@ export function Navbar({ brand = "default" }: { brand?: Brand } = {}) {
   width={120}
   height={120}
   decoding="async"
-  className={`block w-auto select-none object-contain transition-all duration-700 ease-out
+ className={`block w-auto max-w-[70vw] select-none object-contain transition-all duration-1000 ease-[cubic-bezier(.16,.84,.34,1)] [filter:drop-shadow(0_3px_10px_oklch(0.28_0.13_268_/_0.2))] group-hover:[filter:drop-shadow(0_4px_14px_oklch(0.86_0.07_88_/_0.28))] md:motion-safe:animate-none
     ${
       brand === "default"
         ? `

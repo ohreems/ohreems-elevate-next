@@ -70,8 +70,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+    
       { title: "Ohreems Group of Companies" },
       { name: "description", content: "Ohreems Group of Companies — multi-sector enterprise combining workforce technology solutions with sustainable green technology." },
       { name: "author", content: "Ohreems Group of Companies" },
@@ -95,6 +94,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+      {/* Hardcoded viewport — guaranteed to ship in SSR HTML so mobile
+            browsers render at device width instead of a scaled-down desktop. */}
+        <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
         <HeadContent />
       </head>
       <body>
