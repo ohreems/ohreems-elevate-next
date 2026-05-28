@@ -18,6 +18,10 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      {
+  name: "viewport",
+  content: "width=device-width, initial-scale=1, maximum-scale=1",
+},
       { title: "Ohreems Group of Companies — Innovate · Integrate · Impact" },
       {
         name: "description",
